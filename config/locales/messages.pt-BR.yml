@@ -1,0 +1,7 @@
+"pt-BR":
+  messages:
+    confirm: Tem certeza?
+    listing: Listando
+    created: Item criado com sucesso!
+    updated: Item atualizado com sucesso!
+    destroyed: Item removido com sucesso!

@@ -1,0 +1,85 @@
+<%= form_for(contact, html: { class: "form-horizontal"} ) do |f| %>
+
+  <% if contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :email, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :kind_id, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-3">
+      <!-- objeto, atributo a ser populado, coleção, valor a ser persistido, descrição visual. -->
+      <%= collection_select(:contact, :kind_id, @kind_options_for_select, :id,
+                            :description, {}, {:class => "form-control"}) %>
+    </div>
+  </div>
+
+  <%= f.fields_for :address do |address_fields| %>
+
+    <div class="form-group">
+      <%= address_fields.label :street, :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= address_fields.text_field :street, :class => "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= address_fields.label :city, :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= address_fields.text_field :city, :class => "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= address_fields.label :state, :class => "col-sm-2 control-label" %>
+      <div class="col-sm-3">
+        <%= address_fields.select :state, options_for_states(@contact.address.state), {}, {:class => "form-control"} %>
+      </div>
+    </div>
+  <% end %>
+
+  <div id="phones">
+    <%= f.fields_for :phones do |phones_fields| %>
+      <%= render partial: "phone_fields", locals: { f: phones_fields } %>
+    <% end %>
+
+    <div class="form-group">
+        <%= f.label :phones, "<span class='glyphicon glyphicon-phone-alt'></span>".html_safe, 
+                                :class => "col-sm-2 control-label" %> 
+        <%= link_to_add_association  "Adicionar Telefone", f, :phones, :class => "btn btn-info" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :rmk, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :rmk, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.submit t('buttons.save'), :class => "btn btn-primary" %>
+    <%= link_to  t('buttons.back'), contacts_path, :class => "btn btn-success" %>
+  </div>
+<% end %>
