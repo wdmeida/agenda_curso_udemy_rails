@@ -1,24 +1,15 @@
-# README
+# Agenda de Contatos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projeto desenvolvido no módulo 1 do curso de Ruby on Rails completo da Udemy.
 
-Things you may want to cover:
+Para executar o mesmo, entre na pasta do projeto ("notebook") e instale as dependências:
 
-* Ruby version
+<strong>$ bundle</strong>
 
-* System dependencies
+Após instalar as dependências, inicia a aplicação:
 
-* Configuration
+<strong># rails s</strong>
 
-* Database creation
+Abra o browser e acesse o endereço:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<strong>localhost:3000</strong>
