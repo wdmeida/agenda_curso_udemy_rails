@@ -1,0 +1,6 @@
+'pt-BR':
+  labels:
+    login: Login
+    logout: Sair
+    signin: Entrar
+    signup: Cadastrar

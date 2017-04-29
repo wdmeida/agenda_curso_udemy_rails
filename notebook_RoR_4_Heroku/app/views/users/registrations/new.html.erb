@@ -1,0 +1,36 @@
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => "form-signin" } ) do |f| %>
+  
+  <h2 class="form-signin-heading"><%= t('labels.signup') %></h2>
+
+  <%= devise_error_messages! %>
+  
+
+
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit t('labels.signup'), :class => "btn btn-lg btn-success btn-block" %>
+  </div>
+  <div class="form-group">
+    <%= render "users/shared/links" %>
+  </div>
+<% end %>
+
+

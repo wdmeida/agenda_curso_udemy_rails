@@ -1,0 +1,83 @@
+source 'https://rubygems.org'
+ruby "2.1.2"
+
+# Versão bundler para usar Rails assets
+gem 'bundler', '>= 1.8.4'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.1.6'
+# Bundler-like DSL + rake task for Bower on Rails.
+# gem "bower-rails", "~> 0.11.0"
+
+=begin
+Buscando várias gens de uma mesma fonte.
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular'
+end
+=end
+
+# Notifyjs empacotada pelo rails assets.
+gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
+
+# A libraty for generating fake data such as names.
+gem 'faker'
+# Lero lero lero
+gem 'lerolero_generator'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
+gem 'kaminari'
+# kaminari-i18n
+gem 'kaminari-i18n'
+# Internacionalização da aplicação.
+gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.3'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer',  platforms: :ruby
+# Dynamic nested forms using jQuery made easy; works with formtastic, simple_form or default forms
+gem "cocoon"
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.0'
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc', '~> 0.4.0',          group: :doc
+# Bootstrap files.
+gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring',        group: :development
+# Devise
+gem 'devise'
+# Devise i18n
+gem 'devise-i18n'
+
+group :development do
+  gem 'pry-rails'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+end
+
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]
+
+group :production do
+  # Heroku dependency
+  gem 'pg', '~> 0.20.0'
+  
+  # Heroku dependency
+  gem 'rails_12factor'
+end

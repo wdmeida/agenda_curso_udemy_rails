@@ -1,0 +1,8 @@
+"pt-BR":
+  messages:
+    confirm: Tem certeza?
+    listing: Listando
+    error: erros não permitiram que os dados fossem gravados
+    created: Item criado com sucesso!
+    updated: Item atualizado com sucesso!
+    destroyed: Item excluído com sucesso!
